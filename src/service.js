@@ -109,7 +109,12 @@ module.exports = function(mixinOptions) {
 
         created() {
             this.prepareGrpcServices()
+            this.grpcServer = server;
         },
+
+        stopped() {
+            server.stop();
+        }
     }
 
     return serviceSchema
